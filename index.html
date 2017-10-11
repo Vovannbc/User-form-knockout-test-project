@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h3>Creating new user:</h3>
+                <form action="" data-bind="submit: save">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="name" class="control-label">Name</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" data-bind="value: firstName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="surname" class="control-label">Surname</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <input class="form-control" id="surname" type="text" data-bind="value: lastName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="age" class="control-label">Age</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input class="form-control" id="age" type="text" data-bind="value: age">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="sex" class="control-label">Sex</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <select class="form-control" name="sex" id="sex" data-bind="options: sexOptions,
+                                                                                            optionsCaption: 'Not choose',
+                                                                                            value: sex,
+                                                                                            valueAllowUnset: true">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        Admin access <input type="checkbox" data-bind="checked: isAdmin">
+                    </div>
+                    <div class="form-group" data-bind="visible: isAdmin">
+                        <p>to acticles <input type="radio" value="to acticles" data-bind="checked: adminName"></p>
+                        <p>to departments <input type="radio" value="to departments" data-bind="checked: adminName"></p>
+                        <p>Super Admin <input type="radio" value="Super Admin " data-bind="checked: adminName"></p>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h3>New user:</h3>
+                <dl>
+                    <dd data-bind="text: fullName"></dd>
+                    <dd data-bind="text: age"></dd>
+                    <dd data-bind="text: sex"></dd>
+                    <dd data-bind="visible: isAdmin">Admin (<span data-bind="text: adminName"></span>)</dd>
+                </dl>
+                <div class="form-group mt-3">
+                    <button type="button" data-bind="visible: notEmpty, click: reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
